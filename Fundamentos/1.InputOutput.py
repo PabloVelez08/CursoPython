@@ -14,8 +14,13 @@ apellido = input()
 print('Edad: ', end='')
 edad = input()
 
+#Primer reto curso
+ciudad = input('Ingresa tu ciudad: ')
+
 print('El nombre ingresdo es: ',nombre)
 print('El apellido ingresdo es: ',apellido)
 print('El edad ingresdo es: ',edad)
+print('El ciudad ingresdo es: ',ciudad)
+
 
 #Python es un lenguaje 100% orientado a objetos
