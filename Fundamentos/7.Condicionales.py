@@ -40,4 +40,5 @@ x = 10
 print(0 < x < 12)
 print(4 < 5 < 8 < 200)
 
-print('A' < 'B')
+print('A' > 'B')
+print('oso' <= 'oso')
