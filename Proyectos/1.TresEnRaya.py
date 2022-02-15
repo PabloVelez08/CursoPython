@@ -14,11 +14,14 @@
 # Y la cuarta salir
 
 def menu():
-    print('\n\tTres en raya')
+    print('\n\tTres en raya\n')
     print('1. Configurar nombres de los jugadores')
     print('2. Cambiar piezas')
     print('3. Jugar')
     print('4. Salir')
+
+def mostrarTablero():
+    pass
 
 menu()
 
