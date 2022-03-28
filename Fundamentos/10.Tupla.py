@@ -29,3 +29,8 @@ dimensiones = (500,600)
 dimensionX, dimensionY = dimensiones
 print(dimensionX)
 print(dimensionY)
+
+#Convertir de una lista hacia tupla
+lista1 = [85,26,98]
+miTupla = tuple(lista1)
+print(miTupla)
