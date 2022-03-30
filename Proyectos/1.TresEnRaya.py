@@ -85,22 +85,22 @@ def mostrarTablero():
 
 
 def main():
-    
-    opcionMenu = menu() # Va a ejecutar la funcion menu y tambine va a asignar el retorno a mi variable
-
-    # Condicionales
-    if opcionMenu == '1':
-        nombreJugadores()
-    elif opcionMenu == '2':
-        cambiarPiezas()
-    elif opcionMenu == '3':
-        jugar()
-    elif opcionMenu == '4':
-        print('Saliendo')
-    else:
-        print('Por favor ingrese una opcion valida')
-
-    jugar()
+    terminarJuego = False
+    while terminarJuego == False:
+        opcionMenu = menu() # Va a ejecutar la funcion menu y tambine va a asignar el retorno a mi variable
+        # Condicionales
+        if opcionMenu == '1':
+            nombreJugadores()
+        elif opcionMenu == '2':
+            cambiarPiezas()
+        elif opcionMenu == '3':
+            jugar()
+        elif opcionMenu == '4':
+            print('\tGracias por jugar, te esperamos pronto')
+            terminarJuego = True
+        else:
+            print('Por favor ingrese una opcion valida')
+        
 
 main()
 

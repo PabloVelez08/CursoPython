@@ -1,7 +1,9 @@
-x = True
+#x = True
 
 #while x: 
 #   print('Saludar')
+
+
 y = 1
 while y<5 :
     y+=1
