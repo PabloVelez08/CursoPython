@@ -1,17 +1,19 @@
 # Tres en raya
 # Reglas clasicas del tres en linea
 # Si tres caracteres son iguales en cualquier sentido se termina el juego
-# Gana existir dos jugadores
+# Van a existir dos jugadores
 # Presentacion
 # Se pueden asignar nombre a los dos jugadores
 # Matriz creada a partir de listas
 # Se soliitara que se ingrese la fila y la colmna en la que el jugador quiere marcar su movimiento
 # Debera comprobar si se encuentra ocupado perdera el turno
 # Se terminara el juego
-# Se presentara un menu al inicio en el que se pueda ingresar los nombres de los jugadore
+# Se presentara un menu al inicio en el que se pueda ingresar los nombres de los jugadores
 #, y ademas escoger los caacteres, por defecto sera la x y el o
 # Y la tercera opcion sera jugar
 # Y la cuarta salir
+# Ademas los resultados se guardarán en un archivo de texto con fecha y hora.
+from random import randint
 
 global nombreJugador1
 nombreJugador1 = 'Jugador 1'
@@ -42,7 +44,9 @@ def mostrarMatriz(matriz, dimensiones):
             print(matriz[i][j], end='\t')
         print('')
 
-def llenarMatriz(matriz, fila, columna, caracter):
+def llenarMatriz(matriz, caracter):
+    fila = int(input('Fila: '))
+    columna = int(input('Columna: '))
     matriz[fila-1][columna-1] = caracter
 
 def menu():
@@ -94,14 +98,21 @@ def cambiarPiezas():
     else:
         print('Ingrese una opcion valida')    
 
-def jugar():
-    tablero, dimensiones =crearMatriz()
+def jugar(tablero, dimensiones):
+    
     print('Jugando....')
-    print('Es turno del jugador 1: ', nombreJugador1)
-    print('Es turno del jugador 2: ', nombreJugador2)
-    print('Pieza 1: ', piezaJugador1)
-    print('Pieza 2: ', piezaJugador2)
-    mostrarMatriz(tablero, dimensiones)
+    finalizado = False
+    turno = randint(1,2) 
+    while finalizado == False:  
+        if turno == 1:
+            print('Es turno de: ', nombreJugador1)
+            llenarMatriz(tablero, piezaJugador1)
+            turno = 2
+        else:
+            print('Es turno de: ', nombreJugador2)
+            llenarMatriz(tablero, piezaJugador2)
+            turno = 1
+        mostrarMatriz(tablero, dimensiones)
 
 def mostrarTablero():
     pass
@@ -118,7 +129,8 @@ def main():
         elif opcionMenu == '2':
             cambiarPiezas()
         elif opcionMenu == '3':
-            jugar()
+            tablero, dimensiones = crearMatriz()
+            jugar(tablero, dimensiones)
         elif opcionMenu == '4':
             print('\tGracias por jugar, te esperamos pronto')
             terminarJuego = True
