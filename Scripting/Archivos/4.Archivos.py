@@ -38,4 +38,3 @@ with open('Scripting/Archivos/resumen.txt', mode='w+') as miArchivo:
     for clave in ocurrencias:
         #print(clave + '  ' + str(ocurrencias[clave]))
         miArchivo.write(str(clave).replace('\n','') + '\t'*3 + str(ocurrencias[clave])+'\n')      
-    print(ocurrencias)
