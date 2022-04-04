@@ -1,5 +1,6 @@
 # Manejar archivos con with
 
+# with open permite abrir, realizar las acciones y cerra el archivo
 with open('Scripting/Archivos/ejemplo.txt', 'r+') as miArchivo:
     # todas las acciones a realizar con el archivo
     print(miArchivo.read())

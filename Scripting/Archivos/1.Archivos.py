@@ -22,3 +22,5 @@ print(miArchivo.read())
 print('--Leer varias lineas--')
 miArchivo.seek(0)
 print(miArchivo.readlines())
+
+miArchivo.close()
