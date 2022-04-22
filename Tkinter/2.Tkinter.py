@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import GROOVE, SUNKEN
-from turtle import color
+from tkinter import GROOVE, SUNKEN, ttk
+from turtle import color, width
+from BaseDatos2 import BaseDatos
 
 colorVerde = '#25AD1E'
 colorAzul ='#231E96'
@@ -11,6 +12,7 @@ fuenteGeneral = ('Courie',11,'normal')
 
 class Ventana:
     def __init__(self) -> None:
+        self.conexionDatos = BaseDatos('Usuarios')
         self.root = tk.Tk()
         self.root.title('Ejemplo 2')
         self.root.resizable(True, True)
@@ -43,6 +45,9 @@ class Ventana:
         lblEdad = tk.Label(self.root, text='Edad:', bg=colorVerde, font=fuenteGeneral)
         lblEdad.place(x=20,y=190)
 
+        lblSexo = tk.Label(self.root, text='Sexo:', bg=colorVerde, font=fuenteGeneral)
+        lblSexo.place(x=20,y=240)
+
         # Input
         inputNombre = tk.Entry(self.root, width=20)
         inputNombre.place(x=100,y=110)
@@ -52,10 +57,16 @@ class Ventana:
 
         inputEdad = tk.Entry(self.root)
         inputEdad.place(x=100,y=190)
+
+        listaSexos =['M', 'F']
         # Combobox
+        cmbSexo = tk.ttk.Combobox(self.root, values=listaSexos, width=9)
+        cmbSexo.place(x=100, y=240)
+
 
         def guardarInformacion2():
-            print(f'Información {inputNombre.get()} {inputApellido.get()} {inputEdad.get()}')
+            print(f'Información {inputNombre.get()} {inputApellido.get()} {inputEdad.get()} {cmbSexo.get()}')
+            self.conexionDatos.insertarUsuario(inputNombre.get(),inputApellido.get(), inputEdad.get(), cmbSexo.get())
 
         # Boton
         # width de los botones es un numero de cara
